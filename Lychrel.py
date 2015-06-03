@@ -1,62 +1,72 @@
-# Lycrel numbers are defined as never becoming palindromes in less than 50 iterations of reversing the number and adding it back to itself
+# Lyhcrel numbers are defined as never becoming palindromes in less than 50 iterations of reversing the number and adding it back to itself
 class Lychrel:
-    def __init__(self, debug=False):
+    def __init__(self, number, debug=False):
         self.debug = debug
+        self.number = number
 
-    # Returns the number of Lychrel numbers between startNumber and endNumber
-    def fromTo(self, startNumber, endNumber):
+    # valid instance number check
+    def validNumber(self):
 
-        lychrelNumbers = []
-        lychrelNumsAlsoPal = []
+        return self.number >= 1
 
-        # setup to loop through the numbers startNumber through endNumber  to look for Lychrel numbers
-        for index in range (startNumber, endNumber+1):
-        
-            iterations = 1
-            done = False
+    # see if the instance number is the same as the reverseof of that nubmer.
+    # method is provided as a minor convenience of not having to pass in a number to the palindome function
+    def isPalindrome(self):
 
-            # setup the ReverseSum Object for this number
-            revSumInstance = ReverseSum(index)
+        return isPalindrome(self.number)
 
-            # Lychrel numbers are defined to not have Palindromes of reverse sums for the first 49 iterations
-            while (iterations < 50) and not done:
-        
-                # check to see if reverse sum is a palindrome
-                if palindrome(revSumInstance.getReverseSum()):
-                    done = True
-                else:
-                    # if not a palindrome, setup another ReverseSum Object of the Reverse sum of the current number
-                    revSumInstance = ReverseSum(revSumInstance.getReverseSum())
-    
-                    iterations += 1
+    # see if the instance number is both a palindome itself and a lychrel number
+    def isLychrelAndPalindrome(self):
 
-            # print any found NON lychrel numbers and their palindromes and iterations
-            if done:
-                if self.debug:
-                    print ('Number : ' + str(index) + ', Palindrome : ' + str(revSumInstance.getReverseSum()) + ', Iterations : ' + str(iterations))
+        return self.isPalindrome() and self.isLychrel()
+
+    # return the number of lychrel numbers between fromNumber and toNumber inclusive - static method, does not require an instance.
+    # Kept with the class because it is a convenience method that makes use of this class
+    @staticmethod
+    def isLychrelCount(fromNumber, toNumber):
+
+        count = 0;
+
+        for number in range(fromNumber, toNumber + 1):
+            
+            if Lychrel(number).isLychrel():
+                count += 1
+
+        return count
+
+    def isLychrel(self):
+
+        # validate instance number, 0 and negative numbers will return false by definition
+        if not self.validNumber():
+            return False
+
+        #initialize variables
+        found = False
+        iterations = 1
+
+        # create the ReverseSum instance
+        revSumInstance = ReverseSum(self.number)
+
+        # loop through 49 iterations to see if a reverseSum is also a palindome
+        while (iterations < 50) and not found:
+
+            if isPalindrome(revSumInstance.getReverseSum()):
+                found = True
 
             else:
-                # Found a lychrel number
-                # check to see if this lychrel number is also a Palindrome and if so, add to lychrel numbers that are also palindromes list
-                if palindrome(index):
-                    lychrelNumsAlsoPal.append(index)
+                iterations += 1
+                revSumInstance = ReverseSum(revSumInstance.getReverseSum())
 
-                # add this lychrel number to the lychrel numbers list
-                lychrelNumbers.append(index)
+        # print if found NON lychrel numbers and its palindrome and after how many iterations
+        if found:
+            if self.debug:
+                print ('Non Lychrel Number : ' + str(self.number) + ', Palindrome : ' + str(revSumInstance.getReverseSum()) + ', Iterations : ' + str(iterations))
+        else:
+            if self.debug:
+                print ('Lychrel Number : ' + str(self.number))
 
-        # Print Lycrhel Numbers
-        if self.debug:
-            print ('')
-            print (str(len(lychrelNumbers)) + ' LYCHREL NUMBERS LESS THAN 10,000')
-            print lychrelNumbers
-
-
-            # Print Lychrel Numbers that are themselves Palindromes
-            print ('')
-            print (str(len(lychrelNumsAlsoPal)) + ' LYCHREL NUMBERS THAT ARE THEMSELVES PALINDROMES')
-            print lychrelNumsAlsoPal
-
-        return len(lychrelNumbers)
+        # if Palindome found, this is NON Lychrel, if Palindrome not found, then it is a lychrel.
+        return (not found)
 
 # setup object to contain some number, it's reverse and the sum of the number and it's reverse
 class ReverseSum:
@@ -66,9 +76,22 @@ class ReverseSum:
         self.reverseNumber = str(paramNumber)[::-1]
         self.reverseSum = int(self.number) + int(self.reverseNumber)
 
+    # getter
     def getReverseSum(self):
         return self.reverseSum
 
-# see if an integer number passed in is the same as the reverseof that nubmer
-def palindrome(intNumber):
+    # getter
+    def getNumber(self):
+        return self.number
+
+    # getter
+    def getReverseNumber(self):
+        return self.reverseNumber
+
+# see if an integer number passed in is the same as the reverseof that nubmer.  Negative numbers will be defined as not palindomes
+def isPalindrome(intNumber):
+
+    if intNumber < 0:
+        return False
+
     return str(intNumber) == str(intNumber)[::-1]
