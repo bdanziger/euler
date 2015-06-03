@@ -2,7 +2,7 @@
 This repository will contain projects related to the Euler Project
 
 =====================================
-LYCHREL
+LYCHREL - Problem 55
 =====================================
 
 Lychrel.py defines a class called Lychrel which will generate Lychrel numbers as defined in the Euler Project
@@ -58,3 +58,15 @@ number of Lychrel numbers below 10,0000 :  249
 
 =====================================
 
+ReflexivePosition - Problem 305
+
+=====================================
+
+ReflexivePosition.py defines a class called ReflexivePosition which will generate Reflexive Positions as defined in the Euler Project
+
+instantiation : refPoslInstance = ReflexivePosition()
+or              refPosInstance = ReflexivePosition(debug=True) 
+
+setting debug=True as shown above will output additional details as the ReflexivePosition methods are executed
+
+methods : fromTo(startNumber, endNumber)
