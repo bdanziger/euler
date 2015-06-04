@@ -184,20 +184,35 @@ python MainReflexivePosition.py
 OUTPUT : 
 
 reflexive position of 1, should equal 1            :  True
+
 reflexive position of 5, should equal 81           :  True
+
 reflexive position of 12, should equal 271         :  True
+
 reflexive position of 7780, should equal 111111365 :  True
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  1 , total =  37
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  2 , total =  206
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  3 , total =  2414
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  4 , total =  7139
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  5 , total =  168152
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  6 , total =  1094821
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  7 , total =  15294209
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  8 , total =  67775814
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  9 , total =  1728200395
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  10 , total =  9632403779
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  11 , total =  160686572624
+
 sum of reflexive positions of 3^k 1<=k<=13, after k =  12 , total =  538034026086
 
 ----------
