@@ -141,7 +141,9 @@ INSTANTIATION :
 --------
 
 bigString = InfiniteString()
+
 bigString = InfiniteString(howmany)
+
 bigString = InfiniteString(howmany, debug=True)
 
 howmany will default to 10 if it is not in the argument list
@@ -199,6 +201,7 @@ TESTING REFLEXIVE POSITION
 ----------
 
 There are 2 tests where each test tests many different scenarios
+
 Test1 focus is testing ReflexivePosition
 Test2 focus is testing InfiniteString
 
