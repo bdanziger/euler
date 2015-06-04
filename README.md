@@ -88,11 +88,15 @@ python MainLychrel.py
 OUTPUT : 
 
 Palindrome 4994 is also a Lychrel number     :  True
+
 Palindrome 8778 is also a Lychrel number     :  True
+
 Palindrome 9999 is also a Lychrel number     :  True
+
 Palindrome 1551 is NOT also a Lychrel number :  True
 
 Palindrome 1551 is NOT also a Lychrel number (debug on) 
+
 Non Lychrel Number : 1551, Palindrome : 5115, Iterations : 2
 
 978 is Lychrel number shown two ways :  True
