@@ -27,6 +27,7 @@ isLychrelCount(fromNumber, toNumber)
 returns the number of Lychrel numbers between fromNumber and toNumber inclusive
 
 example : print 'Lychrel numbers from 5 to 10 : ', Lychrel.isLychrelCount(5, 10)
+
 example : print 'Lychrel numbers 10 to 10 : ', Lychrel.isLychrelCount(10, 10)
 
 --------
