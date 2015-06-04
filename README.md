@@ -14,6 +14,7 @@ INSTANTIATION :
 --------
 
 lychrelInstance = Lychrel(number)
+
 lychrelInstance = Lychrel(number, debug=True) 
 
 setting debug=True as shown above will output additional details as the Lychrel methods are executed
